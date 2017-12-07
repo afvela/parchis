@@ -4,16 +4,27 @@ import java.math.*;
 
 public class Mesa 
 {
-	ArrayList<Integer> fichas=new ArrayList<Integer>();
+	ArrayList<Integer> fichasw=new ArrayList<Integer>();
 	static int[] seguros = {5,12,17,22,29,34,39,46,51,56,63,68} ; 
 	static int[] casillas = new int[75];// ESTO PA k?
 	static int[] casillasF = {67,16,33,50};
 	static int[] casillasI = {4,21,38,55};
+	
+	
 	ArrayList<Integer> muros=new ArrayList<Integer>();
+	
+	/////////////////////////////////////////////////
+	
+	ArrayList<Ficha> fichas=new ArrayList<Ficha>();
+	
 	int turno;
 	int numJug;
 	
-	public Mesa(int numJug)
+	
+	// cambios: se introduce un array con los nombres de los jugadores para poder crear
+	// las fichas
+	
+	public Mesa(int numJug, ArrayList<String> nombres)
 	{
 		this.numJug=numJug;
 		//generamos un numero al azar para elegir el jugador inicial
@@ -21,11 +32,19 @@ public class Mesa
 		turno = aleatorio.nextInt(this.numJug);
 		
 		//rellenamos el vector de fichas con 4 fichas por jugador 
+		int j;
 		for(int i=0;i<this.numJug*4;i++)
 		{
-			this.fichas.add(-1);
+			///////////////////////////////////////////////////
+			
+			j=0;
+			while(j<4){
+			Ficha f=new Ficha( nombres.get(i),-1);
+			this.fichas.add(f);
+			j++;
+			}
 		}
-		
+		Ficha.setNumFichZero();
 	}
 	
 	public void sigTurno()

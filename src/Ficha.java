@@ -1,16 +1,18 @@
 
 public class Ficha 
 {
+	static int numfich=0; //////////////
 	String jug;
-	String id;
+	int id;
 	int pos;
 	
 	//////////////////////////////////////////////////constructor
-	public Ficha(String j,String id,int pos)
+	public Ficha(String j,/*int id,*/int pos)
 	{
 		this.jug=j;
-		this.id=id;
+		this.id=numfich;//////////
 		this.pos=pos;
+		numfich++;/////////////
 	}
 	
 	//////////////////////////////////////////////////geters y seters
@@ -30,7 +32,7 @@ public class Ficha
 	}
 
 	///////////////////////////////// ID
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -43,7 +45,10 @@ public class Ficha
 		return most;
 	}
 
-
+	////////////////////////////////////////////////
+	public static void setNumFichZero(){
+		numfich=0;
+	}
 	
 	
 
